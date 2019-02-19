@@ -1,0 +1,10 @@
+<view class="userCard" bindtap="cardTap">
+    <image class="userCard-avatar" src="{{'https:/' + userInfo.upic}}" mode="cover"/>
+    <view class="userCard-nameback">
+      <text class="userCard-username">{{userInfo.uname}}</text>
+      <text class="userCard-userid">{{"mid:" + userInfo.mid}}</text>
+    </view>
+    <view class="userCard-leftBtnBack" catchtap="rightBtnTap">
+        <text class="userCard-leftBtnText">{{leftbtnName}}</text>
+    </view>
+</view>

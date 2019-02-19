@@ -1,0 +1,11 @@
+<!--pages/userInfoPage/userInfoPage.wxml-->
+<view class="container">
+  <block wx:if="{{animeData.length>0}}">
+    <view wx:for="{{animeData}}" wx:key="{{item.season_id}}">
+      <animeCard animeData="{{item}}" bindtap="jumpToWebView" id="{{item.season_id}}"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="tip-text">岂可修,这个人隐藏了自己追番记录</view>
+  </block>
+</view>

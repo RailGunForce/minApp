@@ -1,0 +1,17 @@
+<view class="timeLine-back">
+  <view class="timeLine-header">
+      <view wx:for="{{timeLineData}}" wx:key="{{item.date}}">
+        <view wx:if="{{item.is_today===1}}" class='timeLine-headerBox-select'>
+          <text class='timeLine-headerText-select'>{{item.date}}</text>
+        </view>
+        <view wx:else class='timeLine-headerBox'>
+          <text class='timeLine-headerText'>{{item.date}}</text>
+        </view>
+      </view>
+  </view>
+  <view>
+    {{getShowAnimeData(timeLineData)}}
+  </view>
+
+
+</view>
