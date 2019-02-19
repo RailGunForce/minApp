@@ -24,20 +24,21 @@
 }
 
 .timeLine-headerBox {
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 99rpx;
-  text-align: center;
 }
 
 .timeLine-headerText {
   color: #E3658D;
   font-size: 26rpx;
+  padding: 5rpx 0;
 }
 
 .timeLine-headerBox-select {
   height: 100%;
   width: 99rpx;
-  text-align: center;
   background-color: #E3658D;
   border-radius: 30rpx;
 }

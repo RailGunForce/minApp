@@ -83,10 +83,11 @@
   border-top-color: rgba(227, 101, 141, 0.233);
   border-top-width: 3rpx;
   border-top-style: solid;
-  padding-top: 10rpx;
-  padding-bottom: 10rpx;
-  text-align: center;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .footerText {
