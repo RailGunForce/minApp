@@ -1,0 +1,9 @@
+/* pages/userInfoPage/userInfoPage.wxss */
+.tip-text {
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  color: #999999;
+  font-size: 28rpx;
+}

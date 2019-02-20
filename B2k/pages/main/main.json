@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "userCard": "../components/userCard/userCard",
+    "timeLine": "../components/timeLine/timeLine"
+  }
+}

@@ -1,0 +1,85 @@
+.timeLine-back {
+  width: 100% - 20rpx;
+
+  border-radius: 30rpx;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color:#E3658D;
+  margin: 10rpx;
+}
+
+.timeLine-header {
+  height: 70rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-bottom-color: #E3658D;
+  border-bottom-width: 3rpx;
+  border-bottom-style: solid;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.timeLine-headerBox {
+  width: 99rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeLine-headerText {
+  color: #E3658D;
+  font-size: 26rpx;
+  padding: 5rpx 0;
+}
+
+.timeLine-headerBox-select {
+  height: 100%;
+  background-color: #E3658D;
+  border-radius: 30rpx;
+}
+
+.timeLine-headerText-select {
+  color: #fff;
+}
+
+.week-bar {
+  color: #E3658D;
+  font-size: 26rpx;
+  padding: 5rpx 20rpx;
+}
+
+.anime-card {
+  margin: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.anime-img {
+  width: 120rpx;
+  height: 120rpx;
+  flex-shrink:0;
+}
+
+.text-back {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.anime-title {
+  color: #666;
+  font-size: 30rpx;
+}
+
+.anime-time {
+  color: #E3658D;
+  font-size: 22rpx;
+}
+
+.anime-num {
+  color: #666;
+  font-size: 22rpx;
+}

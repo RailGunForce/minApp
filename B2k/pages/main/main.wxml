@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="container">
+  <block wx:if="{{userInfo.mid === undefind}}"> 
+    <view class="userinfo" bindtap="setUserTap" id="{{'setUser'}}">
+      <image class="set-addSign" src="../image/catch.png" mode="cover"/>
+      <view class="set-addback">
+        <text class="set-addTitle">设置自己的B站账号</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <userCard 
+      userInfo="{{userInfo}}" 
+      leftbtnName="切换"  
+      bindrightBtnTapevent="myEventListener" 
+      bindcardTapevent="myEventListener"
+    />
+    <view class="addUserListBack">
+      <view class="addUserTitle" bindtap="setUserTap" id="{{'addUser'}}">
+        <image class="set-addSign" src="../image/catch.png" mode="cover"/>
+        <view class="set-addback">
+          <text class="set-addTitle">捕捉更多B站大佬</text>
+        </view>
+      </view>
+      <block wx:if="{{addUserInfo.length > 0}}">
+        <block wx:if="{{showAddUserList===true}}">
+          <view class="userListFooter" bindtap="switchShowAll">
+            <text  class="footerText">收起</text>
+          </view>
+          <view wx:for="{{addUserInfo}}" wx:key="mid">
+            <userCard 
+              userInfo="{{item}}" 
+              leftbtnName="释放" 
+              bindrightBtnTapevent="myEventListener" 
+              bindcardTapevent="myEventListener"
+            />
+          </view>
+        </block>
+        <block wx:else>
+          <view class="showAvaterListBack" bindtap="switchShowAll">
+            <view wx:for="{{addUserInfo}}" wx:key="mid">
+              <image wx:if="{{addUserInfo.length<8}}" class="addUserList-avater addUserList-avater-frist" src="{{'https:/' + item.upic}}" mode="cover"/>
+              <block wx:else>
+                <image wx:if="{{item.index<12}}" class="addUserList-avater {{item.index===0?'addUserList-avater-frist':''}}" src="{{'https:/' + item.upic}}" mode="cover"/>
+              </block>
+            </view> 
+          </view>
+        </block>
+      
+      </block>
+    </view>
+  </block>
+  <timeLine 
+    timeLineData="{{timeLineData}}"
+    bindtimeLineSwitchevent="timeLineListener"
+    bindchooseAnimeevent="timeLineListener"
+  />
+  
+
+  
+</view>

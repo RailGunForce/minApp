@@ -1,0 +1,16 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/userInfoPage/userInfoPage",
+    "pages/searchUserPage/searchUserPage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "你在B站看番么",
+    "navigationBarTextStyle": "black"
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx7564fd5313d24844"
+  ]
+}

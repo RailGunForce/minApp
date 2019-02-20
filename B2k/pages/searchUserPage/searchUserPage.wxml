@@ -1,0 +1,16 @@
+<!--pages/searchUserPage/searchUserPage.wxml-->
+<view>
+  <view class="input-back">
+    <view class="input-text">输入B站用户名称</view>
+    <input class="input" auto-focus placeholder="" bindinput="doSearch"/>
+    <view class="input-text">仅显示搜索结果前20位,输入尽可能准确的用户名</view>
+  </view>
+  <view wx:for="{{userData}}" wx:key="mid">
+  <userCard 
+    userInfo="{{item}}" 
+    leftbtnName="{{type === 'setUser' ? '注入灵魂' : (item.isAdd ? '已捕捉' : '捕捉')}}" 
+    bindrightBtnTapevent="myEventListener" 
+    bindcardTapevent="myEventListener"
+    />
+  </view>
+</view>

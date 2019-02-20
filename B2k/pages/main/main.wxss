@@ -1,0 +1,103 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100% - 120rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;  
+  border-radius: 30rpx;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color:#E3658D;
+}
+
+.set-addSign {
+  width: 100rpx;
+  height: 100rpx;
+  
+}
+
+.set-addback {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0rpx;
+}
+
+.set-addTitle {
+  color: #E3658D;
+  font-size: 33rpx;
+  margin-left: 20rpx;
+}
+
+.set-addDes {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.addUserListBack {
+  align-items: center;
+  width: 100% - 120rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;  
+  border-radius: 30rpx;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color:#E3658D;
+}
+
+.addUserTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.showAvaterListBack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  border-top-color: rgba(227, 101, 141, 0.233);
+  border-top-width: 3rpx;
+  border-top-style: solid;
+  padding-top: 20rpx;
+  padding-bottom: 10rpx;
+}
+
+.addUserList-avater {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: -30rpx;
+  border-radius: 50%;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color:rgba(227, 101, 141, 0.233);
+}
+
+.addUserList-avater-frist {
+  margin-left: 10rpx;
+}
+
+.userListFooter {
+  border-top-color: rgba(227, 101, 141, 0.233);
+  border-top-width: 3rpx;
+  border-top-style: solid;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerText {
+  color: #E3658D;
+  font-size: 26rpx;
+
+}
