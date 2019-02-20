@@ -1,9 +1,0 @@
-<!--pages/components/animeCard/animeCard.wxml-->
-<view class="animeCard">
-  <image class="animeCard-cover" src="{{animeData.cover}}" mode="aspectFill"/>
-  <view class="animeCard-valueback">
-    <text class="animeCard-title">{{animeData.title}}</text>
-    <text class="animeCard-des">{{animeData.brief}}</text>
-  </view>
-</view>
-
