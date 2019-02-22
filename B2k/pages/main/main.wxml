@@ -15,7 +15,11 @@
       bindrightBtnTapevent="myEventListener" 
       bindcardTapevent="myEventListener"
     />
-    <view class="addUserListBack">
+    <view 
+      animation="{{animationListData}}"
+      class="addUserListBack"
+      id="userList"
+    >
       <view class="addUserTitle" bindtap="setUserTap" id="{{'addUser'}}">
         <image class="set-addSign" src="../image/catch.png" mode="cover"/>
         <view class="set-addback">
@@ -23,30 +27,29 @@
         </view>
       </view>
       <block wx:if="{{addUserInfo.length > 0}}">
-        <block wx:if="{{showAddUserList===true}}">
+        <view class="showAvaterListBack animateAdd" bindtap="switchShowAll">
+          <view wx:for="{{addUserInfo}}" wx:key="mid">
+            <image animation="{{animationImgeDataArr[item.index]}}" wx:if="{{item.index<12}}" class="addUserList-avater {{item.index===0?'addUserList-avater-frist':''}}" src="{{'https:/' + item.upic}}" mode="cover"/>
+          </view> 
+        </view>
+        <block wx:if="{{showAddUserList!==true}}">
+          <view class="showAvaterListBack"/>
+        </block>
+        <block wx:else>
           <view class="userListFooter" bindtap="switchShowAll">
             <text  class="footerText">收起</text>
           </view>
-          <view wx:for="{{addUserInfo}}" wx:key="mid">
-            <userCard 
-              userInfo="{{item}}" 
-              leftbtnName="释放" 
-              bindrightBtnTapevent="myEventListener" 
-              bindcardTapevent="myEventListener"
-            />
+          <view class='animateCardAdd' animation="{{animationCardData}}"> 
+            <view wx:for="{{addUserInfo}}" wx:key="mid" >
+              <userCard 
+                userInfo="{{item}}" 
+                leftbtnName="释放" 
+                bindrightBtnTapevent="myEventListener" 
+                bindcardTapevent="myEventListener"
+              />
+            </view>
           </view>
         </block>
-        <block wx:else>
-          <view class="showAvaterListBack" bindtap="switchShowAll">
-            <view wx:for="{{addUserInfo}}" wx:key="mid">
-              <image wx:if="{{addUserInfo.length<8}}" class="addUserList-avater addUserList-avater-frist" src="{{'https:/' + item.upic}}" mode="cover"/>
-              <block wx:else>
-                <image wx:if="{{item.index<12}}" class="addUserList-avater {{item.index===0?'addUserList-avater-frist':''}}" src="{{'https:/' + item.upic}}" mode="cover"/>
-              </block>
-            </view> 
-          </view>
-        </block>
-      
       </block>
     </view>
   </block>

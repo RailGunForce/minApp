@@ -1,5 +1,10 @@
 <view class="userCard" bindtap="cardTap">
-    <image class="userCard-avatar" src="{{'https:/' + userInfo.upic}}" mode="cover"/>
+    <block wx:if="{{leftbtnName === '释放'}}">
+      <image class="userCard-avatar" mode="cover"/>
+    </block>
+    <block wx:else>
+      <image class="userCard-avatar" src="{{'https:/' + userInfo.upic}}" mode="cover"/>
+    </block>
     <view class="userCard-nameback">
       <text class="userCard-username">{{userInfo.uname}}</text>
       <text class="userCard-userid">{{"mid:" + userInfo.mid}}</text>

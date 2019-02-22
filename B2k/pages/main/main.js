@@ -12,6 +12,10 @@ Page({
     addUserInfo: [],
     showAddUserList: false,
     timeLineData: [],
+
+    animationListData: {},
+    animationImgeDataArr: [],
+    animationCardData: {},
   },
   
   setUserTap: function (e) {
@@ -22,9 +26,89 @@ Page({
   },
 
   switchShowAll: function (e) {
-    this.setData({
-      showAddUserList: !this.data.showAddUserList
+    let isShow = this.data.showAddUserList;
+    if (isShow) {
+      this.hiddenAnimation();
+    } else {
+      this.showAnimation();
+    }
+  },
+
+  /*
+  1.还是应该在展开动作完成后,把这个头像栏隐藏了,不然会影响展开时的添加删除结果
+  2. 展开后,100ms 之后,隐藏头像栏,显示原头像
+  3. 收起时,隐藏原头像,显示头像栏,然后进行动画
+  */
+
+  showAnimation: function () {
+    const sysInfo = wx.getSystemInfoSync()
+    let pxfix = sysInfo.screenWidth / 750;
+    let imageArr = this.data.addUserInfo;
+    const animationOne = wx.createAnimation({
+      duration: 500,
+      timingFunction: 'ease',
     })
+    let tpHeight = 225 + imageArr.length * 140
+    animationOne.height(tpHeight + "rpx").step()
+    let animaArr = [];
+    for (let index = 0; index < imageArr.length; index++) {
+      const animationImage = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease',
+      })
+      let offSetX = 16 + index * (-40);
+      let offSetY = 72 + index * (113.5)
+      animationImage.scale(1.25).translateX(offSetX * pxfix).translateY(offSetY * pxfix).step();
+      animaArr.push(animationImage.export())
+    }
+    this.setData({
+      animationListData: animationOne.export(),
+      animationImgeDataArr: animaArr,
+      showAddUserList: true
+    })
+    setTimeout(()=>{
+      const animationCard = wx.createAnimation({
+        duration: 200,
+        timingFunction: 'ease',
+      })
+      animationCard.opacity(1).step();
+      this.setData({
+        animationCardData: animationCard.export(),
+      })
+    },100)
+  },
+
+  hiddenAnimation: function () {
+    const animationCard = wx.createAnimation({
+      duration: 200,
+      timingFunction: 'ease',
+    })
+    animationCard.opacity(0).step();
+    this.setData({
+      animationCardData: animationCard.export(),
+    })
+    setTimeout(()=>{
+      const animationOne = wx.createAnimation({
+        duration: 500,
+        timingFunction: 'ease',
+      })
+      animationOne.height("225rpx").step();
+      let imageArr = this.data.addUserInfo;
+      let animaArr = [];
+      for (let index = 0; index < imageArr.length; index++) {
+        const animationImage = wx.createAnimation({
+          duration: 500,
+          timingFunction: 'ease',
+        })
+        animationImage.scale(1).translateX(0).translateY(0).step();
+        animaArr.push(animationImage.export())
+      }
+      this.setData({
+        animationListData: animationOne.export(),
+        animationImgeDataArr: animaArr,
+        showAddUserList: false
+      })
+    },100)
   },
 
   onLoad: function () {

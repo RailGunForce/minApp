@@ -51,6 +51,7 @@
   border-width: 3rpx;
   border-style: solid;
   border-color:#E3658D;
+  height: 225rpx;
 }
 
 .addUserTitle {
@@ -78,9 +79,9 @@
   height: 80rpx;
   margin-left: -30rpx;
   border-radius: 50%;
-  border-width: 3rpx;
+  /* border-width: 3rpx;
   border-style: solid;
-  border-color:rgba(227, 101, 141, 0.233);
+  border-color:rgba(227, 101, 141, 0.233); */
 }
 
 .addUserList-avater-frist {
@@ -116,4 +117,14 @@
 .about-text {
   color: #E3658D;
   font-size: 24rpx;
+}
+
+.animateAdd {
+  position: absolute;
+  border-top-width: 0rpx;
+  width: 700rpx;
+}
+
+.animateCardAdd {
+  opacity: 0;
 }

@@ -3,11 +3,10 @@
   flex-direction: row;
   align-items: center;
   padding: 20rpx;
-  margin-left: 10rpx;
-  margin-right: 10rpx;
   border-top-style: solid;
   border-top-width: 1rpx;
   border-top-color: rgba(227, 101, 141, 0.233);
+  height: 100rpx;
 }
 
 .userCard-avatar {
@@ -43,6 +42,7 @@
   display: flex;
   justify-content:center;
   align-items: center;
+
 }
 
 .userCard-leftBtnText {
