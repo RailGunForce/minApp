@@ -67,7 +67,6 @@ Page({
   },
 
   myEventListener: function (e) {
-    console.log(e);
     let eventType = e.type;
     if (eventType === 'cardTapevent') {
       let params = e.detail.params;

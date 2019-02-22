@@ -6,6 +6,8 @@
   width: 100% - 120rpx;
   margin-left: 10rpx;
   margin-right: 10rpx;
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;  
   border-radius: 30rpx;
@@ -100,4 +102,18 @@
   color: #E3658D;
   font-size: 26rpx;
 
+}
+
+.about-bar {
+  padding: 10rpx 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.about-text {
+  color: #E3658D;
+  font-size: 24rpx;
 }

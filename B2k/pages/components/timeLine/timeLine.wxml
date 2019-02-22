@@ -7,7 +7,6 @@
       </view>
   </view>
   <view>
-   
     <view wx:for="{{timeLineData}}" wx:key="date">
       <view wx:if="{{item.is_today===1}}">
         <text class='week-bar'>{{item.weekStr}}</text>

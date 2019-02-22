@@ -2,7 +2,11 @@
 //获取应用实例
 const app = getApp();
 
+
 Page({
+
+  chooseTimeLine: "",
+
   data: {
     userInfo: {},
     addUserInfo: [],
@@ -26,11 +30,12 @@ Page({
   onLoad: function () {
     global.addIdArr = [];
     global.userId = '';
+    this.getTimeLineData();
+
   },
 
   onShow: function () {
     this.getUserInfo();
-    this.getTimeLineData();
   },
 
   myEventListener: function (e) {
@@ -74,6 +79,7 @@ Page({
       let switchToDate = e.detail.toDate;
       let timeLineData = this.data.timeLineData;
       let newTimeLineData = [];
+      this.chooseTimeLine = switchToDate;
       for (let index = 0; index < timeLineData.length; index ++) {
         let dailyData = timeLineData[index];
         if (dailyData.date === switchToDate) {
@@ -90,18 +96,12 @@ Page({
     }
     if (eventType === 'chooseAnimeevent') {
       let seasonId = e.detail.seasonId;
-      wx.navigateToMiniProgram({
-        appId: 'wx7564fd5313d24844',
-        path: 'pages/pgcvideo/pgcvideo?ssid=' + seasonId,
-        success(res) {
-          // 打开成功
-        },
-        fail(error) {
-          console.log(JSON.stringify(error))
-        },
+      wx.navigateTo({
+        url: '../bangumiPage/bangumiPage?seasonId=' + seasonId
       })
     }
   },
+
   
   updateAddArr: function(deleteMid) {
     let _this = this;
@@ -126,7 +126,6 @@ Page({
             }
           }
         }
-        console.log(showAddUserArr);
         global.addIdArr = addIdArr;
         _this.setData({
           addUserInfo: showAddUserArr
@@ -215,6 +214,14 @@ Page({
       }
     }
     return returnData;
+  },
+
+  toAbout: function() {
+    wx.navigateTo({
+      url: '../aboutPage/aboutPage?uname=' + this.data.userInfo.uname
+    })
   }
+
+
 })
 

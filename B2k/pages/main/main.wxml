@@ -55,6 +55,9 @@
     bindtimeLineSwitchevent="timeLineListener"
     bindchooseAnimeevent="timeLineListener"
   />
+  <view class='about-bar' bindtap="toAbout">
+    <text class='about-text'>————  | 关于此小程序 |  ————</text>
+  </view>
   
 
   

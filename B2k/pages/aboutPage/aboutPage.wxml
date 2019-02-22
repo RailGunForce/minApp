@@ -1,0 +1,29 @@
+<view class='about-back'>
+  <text wx:if="{{uname !== 'undefined'}}" class='about-name'>{{uname}}</text>
+  <text class='about-text'>感谢使用此小程序</text>
+  <text class='about-text'>尔等的支持让吾敲键盘的手多了几分力量呢[认真脸]</text>
+  <text class='about-text'>吾只是兴趣使然地开发了这个小程序[赞美bilibili]</text>
+  <text class='about-text'>此小程序寄托吾<text class='colorOne'>开发</text>和<text class='colorOne'>动漫</text>两大爱好,是吾重要之物</text>
+  <text class='about-text'>感谢动漫予吾等平淡的生活以<text class='colorOne'>感动</text>和<text class='colorOne'>激励</text>[再次赞美bilibili]</text>
+  <text class='about-text'>\n</text>
+  <text class='about-text'>小程序作者: <text class='colorOne'>Dawninest</text><text class='smallSize'> [微信/bilibili/知乎/即刻/GitHub]</text></text>
+  <text class='about-text'>技术指导者: <text class='colorOne'>卢霄霄</text><text class='smallSize'> [微信] (吾之Master)</text></text>
+  <text class='about-text'>开发鼓励者: <text class='colorOne'>monster.demo</text><text class='smallSize'> [微信] (摇旗呐喊666兼测试)</text></text>
+  <text class='about-text'>战术后摇者: <text class='colorOne'>Red</text><text class='smallSize'> [微信] (同系小程序"你在听歌么"开发者)</text></text>
+  <text class='about-text'>\n</text>
+  <text class='about-text smallSize colorOne'>同系列小程序推荐:</text>
+  <view class='otherApp-back' bindtap="toRedMinApp">
+    <image class="otherApp-cover" src="../image/redminApp.png" mode="cover"/>
+    <text class='about-text smallSize'>你在听歌么</text>
+  </view>
+  <text class='about-text'>\n</text>
+  <text class='about-text'>数据来源: <text class='colorOne'>bilibili</text></text>
+  <text class='about-text'>使用接口域名:</text>
+  <text class='about-text smallSize colorOne'>https://api.bilibili.com</text>
+  <text class='about-text smallSize colorOne'>https://bangumi.bilibili.com</text>
+  <text class='about-text smallSize colorOne'>https://search.bilibili.com</text>
+  <text class='about-text smallSize colorOne'>https://space.bilibili.com</text>
+  <text class='about-text smallSize colorOne'>https://www.bilibili.com</text>
+  <text class='about-text'>\n</text>
+  <text class='about-text smallSize'>申明: 本人不知道这样直接使用bilibili数据进行二次开发是否会对bilibili造成侵权等行为,若有相关风险,请及时联系我,小家小户收不起律师函,我可是bilibili的忠实用户[续了好几年大会员呢]</text>
+</view>

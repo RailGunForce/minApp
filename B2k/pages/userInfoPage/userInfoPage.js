@@ -27,7 +27,6 @@ Page({
     wx.request({
       url: url,
       success: res => {
-        console.log(res);
         if (res.data.status) {
           let getAnimeData = res.data.data.result;
           let newData = this.data.animeData.concat(getAnimeData);
@@ -43,15 +42,8 @@ Page({
 
   jumpToWebView: function (e) {
     let ssid = e.target.id;
-    wx.navigateToMiniProgram({
-      appId: 'wx7564fd5313d24844',
-      path: 'pages/pgcvideo/pgcvideo?ssid=' + ssid,
-      success(res) {
-        // 打开成功
-      },
-      fail(error) {
-        console.log(JSON.stringify(error))
-      },
+    wx.navigateTo({
+      url: '../bangumiPage/bangumiPage?seasonId=' + ssid
     })
   },
 

@@ -1,0 +1,57 @@
+<view class='bangumi-back'>
+  
+  <text class='bangumi-title'>{{media_info.title}}</text>
+  <view class='bangumi-info'>
+    <image class='bangumi-cover' src="{{media_info.cover}}" mode="aspectFill"/>
+    <view class='bangumi-info-text-back'>
+      
+      <view class='bangumi-typeBar'>
+        <view wx:for="{{media_info.style}}" wx:key="id">
+          <text class='bangumi-type-text'>{{item.name}}</text>
+        </view>
+      </view>
+      <view class='bangumi-stat'>
+        <text class='bangumi-stat-text'>弹幕总数: {{media_info.stat.danmakus}}</text>
+        <text class='bangumi-stat-text'>追番人数: {{media_info.stat.favorites}}</text>
+        <text class='bangumi-stat-text'>总播放量: {{media_info.stat.views}}</text>
+        <text class='bangumi-stat-text color-text-add'>{{media_info.publish.pub_date_show}} 开播</text>
+        <text class='bangumi-stat-text color-text-add'>{{media_info.episode_index.index_show}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='bangumi-jumpBtn' bindtap="jumpToB">
+    <view class='btn-text-back'>
+      <text class='bangumi-btn-text btn-left-text-add'>评分: {{media_info.rating.score}}</text>
+    </view>
+    <view class='bangumi-btn-line'/>
+    <view class='btn-text-back'>
+      <text class='bangumi-btn-text btn-right-text-add'>点击前往bilibili观看</text>
+    </view>
+  </view>
+  <view class='bangumi-des-back'> 
+    <text class='bangumi-des-text'>简介: {{media_info.evaluate}}</text>
+  </view>
+  <view class='bangumi-episodes-back'>
+    <view wx:for="{{media_info.episodes}}" wx:key="aid">
+      <view class='bangumi-episodes-item' id="{{item.ep_id}}" bindtap='jumpToB'>
+        <image class='item-cover' src="{{item.cover}}" mode="aspectFill"/>
+        <view class='item-textBar'>
+          <text class='bangumi-des-text'>第{{item.index}}话</text>
+          <text class='bangumi-des-text'>{{item.index_title}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{isShare===true}}" class="back-bar">
+    <button class='bar-btn' bindtap="backHome" >
+      <image class="btn-icon" src="../image/home.png" mode="cover"/>
+    </button>
+  </view>
+  <view class="share-bar">
+    <button open-type="share" class='bar-btn'>
+      <image class="btn-icon" src="../image/share.png" mode="cover"/>
+    </button>
+  </view>
+  
+</view>
+

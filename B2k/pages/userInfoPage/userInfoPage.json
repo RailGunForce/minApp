@@ -1,8 +1,8 @@
 {
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
   "navigationBarTitleText": "",
-  "navigationBarTextStyle": "black",
+  "navigationBarBackgroundColor": "#E3658D",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "animeCard": "../components/animeCard/animeCard"
   }

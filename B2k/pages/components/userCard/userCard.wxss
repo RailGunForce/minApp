@@ -35,19 +35,17 @@
 .userCard-leftBtnBack {
   position: absolute;
   right: 20rpx;
-  height: 60rpx;
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  border-radius: 20rpx;
-  border-width: 3rpx;
-  border-style: solid;
-  border-color: #E3658D;
+  height: 50rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-radius: 10rpx;
+  background-color: #E3658D;
   display: flex;
   justify-content:center;
   align-items: center;
 }
 
 .userCard-leftBtnText {
-  color: #E3658D;
-  font-size: 30rpx;
+  color: #fff;
+  font-size: 24rpx;
 }

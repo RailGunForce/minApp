@@ -1,9 +1,23 @@
 <!--pages/searchUserPage/searchUserPage.wxml-->
-<view>
+<view class='search-back'>
   <view class="input-back">
-    <view class="input-text">输入B站用户名称</view>
-    <input class="input" auto-focus placeholder="" bindinput="doSearch"/>
-    <view class="input-text">仅显示搜索结果前20位,输入尽可能准确的用户名</view>
+    <input 
+      class="input" 
+      placeholder-class="input-holder"
+      auto-focus 
+      placeholder="输入bilibili用户名" 
+      bindconfirm="doSearch"
+      confirm-type="search"
+      maxlength="40"
+    />
+    <view wx:if="{{type === 'setUser'}}" class="tip-back">
+      <text class="tip-text">
+        <text class='tip-addColorOne'>bilibili宇宙</text>尚未与<text class='tip-addColorOne'>微信宇宙</text>建立单位对应联系
+      </text>
+      <text class="tip-text">手动准确输入尔等<text class='tip-addColorOne'>bilibili账号</text>来为此小程序注入灵魂</text>
+      <text class="tip-text">冒名顶替,吾将降下雷罚<text class='tip-addColorTwo'>[其实没法发现]</text></text>
+    </view>
+    <text wx:else class="tip-text">仅显示搜索结果前20位,输入尽可能准确的用户名</text>
   </view>
   <view wx:for="{{userData}}" wx:key="mid">
   <userCard 

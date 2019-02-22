@@ -2,28 +2,30 @@
 .animeCard {
   display: flex;
   flex-direction: row;
-  width: 100% - 40rpx;
-  margin: 10rpx 20rpx;
+  width: 710rpx;
+  padding: 10rpx 20rpx;
 }
 
 .animeCard-cover {
   width: 220rpx;
   height: 288rpx;
+  border-radius: 10rpx;
+  flex-shrink:0;
+
   border-width: 2rpx;
   border-style: solid;
-  flex-shrink:0;
-  border-color: #999;
+  border-color:rgba(227, 101, 141, 0.233);
 }
 
 .animeCard-valueback {
   display: flex;
   flex-direction: column;
-  padding: 10rpx 0rpx;
+  padding: 5rpx 0rpx;
   padding-left: 20rpx;
 }
 
 .animeCard-title {
-  color: #333;
+  color: #666;
   font-size: 36rpx;
 }
 

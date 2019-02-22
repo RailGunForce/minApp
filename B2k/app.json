@@ -2,15 +2,18 @@
   "pages": [
     "pages/main/main",
     "pages/userInfoPage/userInfoPage",
-    "pages/searchUserPage/searchUserPage"
+    "pages/searchUserPage/searchUserPage",
+    "pages/bangumiPage/bangumiPage",
+    "pages/aboutPage/aboutPage"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "你在B站看番么",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#E3658D",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "你在B站看番么"
   },
   "navigateToMiniProgramAppIdList": [
-    "wx7564fd5313d24844"
+    "wx7564fd5313d24844",
+    "wxd422e4a71b224d86"
   ]
 }

@@ -1,0 +1,45 @@
+/* pages/aboutPage/aboutPage.wxss */
+.about-back {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+}
+
+.about-name {
+  color: #E3658D;
+  font-size: 36rpx;
+}
+
+.about-text {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.colorOne {
+  color: #E3658D;
+}
+
+.smallSize {
+  font-size: 20rpx;
+}
+
+.otherApp-back {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  align-items: center;
+  justify-content: center;
+  width: 120rpx;
+  
+}
+
+.otherApp-cover {
+  width: 100rpx;
+  height: 100rpx;
+  flex-shrink:0;
+  border-radius: 50%;
+  border-width: 5rpx;
+  border-style: solid;
+  border-color:rgba(227, 101, 141, 0.233);
+  margin-bottom: 20rpx;
+}

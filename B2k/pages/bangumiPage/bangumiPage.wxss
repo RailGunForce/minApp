@@ -1,0 +1,180 @@
+
+.bangumi-back {
+  padding: 20rpx;
+  padding-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.bangumi-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.bangumi-cover {
+  width: 225rpx;
+  height: 300rpx;
+  flex-shrink:0;
+  border-radius: 30rpx;
+  border-width: 5rpx;
+  border-style: solid;
+  border-color:rgba(227, 101, 141, 0.233);
+}
+
+.bangumi-info-text-back {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.bangumi-title {
+  color: #666;
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
+}
+
+.bangumi-typeBar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bangumi-type-text {
+  border-radius: 10rpx;
+  border-width: 1rpx;
+  border-style: solid;
+  border-color: #E3658D;
+  color: #E3658D;
+  font-size: 24rpx;
+  padding: 2rpx 8rpx;
+  margin-right: 10rpx;
+}
+
+.bangumi-stat {
+  margin-top: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.bangumi-stat-text {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.color-text-add {
+  color: #E3658D;
+}
+
+.bangumi-jumpBtn {
+  margin-top: 15rpx;
+  width: 100%;
+  background-color: #E3658D;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-text-back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15rpx 0;
+}
+
+.bangumi-btn-text {
+  color: #fff;
+  font-size: 26rpx;
+}
+
+.btn-left-text-add {
+  width: 235rpx;
+}
+
+.btn-right-text-add {
+  width: 470rpx;
+}
+
+.bangumi-btn-line {
+  width: 2rpx;
+  height: 30rpx;
+  background-color: #fff;
+}
+
+.bangumi-des-back {
+  margin: 20rpx 0rpx;
+  display: flex;
+}
+
+.bangumi-des-text {
+  color: #666;
+  font-size: 24rpx;
+}
+
+.bangumi-episodes-back {
+  display: flex;
+  flex-direction: column;
+}
+
+.bangumi-episodes-item {
+  display: flex;
+  flex-direction: row;
+  border-radius: 6rpx;
+  width: 710rpx;
+  background-color: #f4f5f7;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.item-cover {
+  width: 198rpx;
+  height: 110rpx;
+  flex-shrink: 0;
+  border-radius: 6rpx;
+}
+
+.item-textBar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.item-text {
+  color: #666;
+  font-size: 22rpx;
+  
+}
+
+.back-bar {
+  position: fixed;
+  right: 0rpx;
+  bottom: 100rpx;
+}
+
+.share-bar {
+  position: fixed;
+  right: 0rpx;
+  bottom: 0rpx;
+}
+
+.bar-btn {
+  background: none !important;
+  color: #000 !important;
+}
+
+.bar-btn::after{
+  border: none;
+}
+
+.btn-icon {
+  width: 40rpx;
+  height: 40rpx;
+  padding: 20rpx;
+  border-color: #E3658D;
+  border-width: 2rpx;
+  border-style: solid;
+  border-radius: 50%;
+}
+

@@ -1,15 +1,27 @@
 /* pages/searchUserPage/searchUserPage.wxss */
+.search-back {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+
 .input-back {
   margin-bottom: 20rpx;
+
 }
 
 .input-text {
-  margin-top: 20rpx;
-  margin-bottom: 10rpx;
-  padding-left: 20rpx;
-  padding-right: 20rpx;
+  margin: 0 20rpx;
   color: #999999;
   font-size: 28rpx;
+}
+
+.tip-addColorOne {
+  color: #E3658D;
+}
+
+.tip-addColorTwo {
+  color: #bbb;
 }
 
 .input {
@@ -18,10 +30,30 @@
   line-height: 2.58823529em;
   padding-left: 20rpx;
   padding-right: 20rpx;
+  margin: 10rpx 0rpx;
   border-bottom-width: 1rpx;
   border-bottom-style: solid;
   border-bottom-color: #E3658D;
   border-top-width: 1rpx;
   border-top-style: solid;
   border-top-color: #E3658D;
+
+  color: #E3658D;
+  font-size: 30rpx;
+}
+
+.input-holder {
+  color: #999999;
+  font-size: 30rpx;
+}
+
+.tip-back {
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-text {
+  margin-left: 20rpx;
+  color: #999999;
+  font-size: 28rpx;
 }

@@ -1,9 +1,7 @@
 {
   "backgroundTextStyle": "light",
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "番剧信息",
   "navigationBarBackgroundColor": "#E3658D",
   "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "userCard": "../components/userCard/userCard"
-  }
+  "usingComponents": {}
 }
