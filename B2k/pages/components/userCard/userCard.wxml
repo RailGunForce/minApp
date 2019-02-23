@@ -1,6 +1,6 @@
 <view class="userCard" bindtap="cardTap">
     <block wx:if="{{leftbtnName === '释放'}}">
-      <image class="userCard-avatar" mode="cover"/>
+      <image class="userCard-avatar"/>
     </block>
     <block wx:else>
       <image class="userCard-avatar" src="{{'https:/' + userInfo.upic}}" mode="cover"/>

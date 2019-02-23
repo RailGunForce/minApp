@@ -14,7 +14,8 @@ Page({
     timeLineData: [],
 
     animationListData: {},
-    animationImgeDataArr: [],
+    animationImgBarData: {},
+    animationImgDataArr: [],
     animationCardData: {},
   },
   
@@ -45,25 +46,37 @@ Page({
     let pxfix = sysInfo.screenWidth / 750;
     let imageArr = this.data.addUserInfo;
     const animationOne = wx.createAnimation({
-      duration: 500,
+      duration: 400,
       timingFunction: 'ease',
     })
     let tpHeight = 225 + imageArr.length * 140
     animationOne.height(tpHeight + "rpx").step()
+    const animationImgBar = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+      transformOrigin: '0% 100% 0',
+    })
+    animationImgBar.rotate(90).translateX(-22 * pxfix).translateY(-8 * pxfix).step()
     let animaArr = [];
     for (let index = 0; index < imageArr.length; index++) {
+      let transform = (50 + index * 115) + '% 50% 0';
       const animationImage = wx.createAnimation({
-        duration: 500,
+        duration: 400,
         timingFunction: 'ease',
+        //transformOrigin: transform,
       })
-      let offSetX = 16 + index * (-40);
-      let offSetY = 72 + index * (113.5)
-      animationImage.scale(1.25).translateX(offSetX * pxfix).translateY(offSetY * pxfix).step();
+   
+      //let offSetX = index * 92;
+      let offSetX = index * 73.5;
+      
+      // animationImage.scale(1.25).rotate(-90).translateX(offSetX * pxfix).step();
+      animationImage.scale(1.25).translateX(offSetX * pxfix).step();
       animaArr.push(animationImage.export())
     }
     this.setData({
       animationListData: animationOne.export(),
-      animationImgeDataArr: animaArr,
+      animationImgBarData: animationImgBar,
+      animationImgDataArr: animaArr,
       showAddUserList: true
     })
     setTimeout(()=>{
@@ -89,23 +102,32 @@ Page({
     })
     setTimeout(()=>{
       const animationOne = wx.createAnimation({
-        duration: 500,
+        duration: 400,
         timingFunction: 'ease',
       })
       animationOne.height("225rpx").step();
+      const animationImgBar = wx.createAnimation({
+        duration: 400,
+        timingFunction: 'ease',
+        transformOrigin: '0% 100% 0',
+      })
+      animationImgBar.rotate(0).translateX(0).translateY(0).step()
       let imageArr = this.data.addUserInfo;
       let animaArr = [];
       for (let index = 0; index < imageArr.length; index++) {
+        let transform = (50 + index * 115) + '% 50% 0';
         const animationImage = wx.createAnimation({
-          duration: 500,
+          duration: 400,
           timingFunction: 'ease',
+          // transformOrigin: transform,
         })
         animationImage.scale(1).translateX(0).translateY(0).step();
         animaArr.push(animationImage.export())
       }
       this.setData({
         animationListData: animationOne.export(),
-        animationImgeDataArr: animaArr,
+        animationImgBarData: animationImgBar,
+        animationImgDataArr: animaArr,
         showAddUserList: false
       })
     },100)
@@ -218,13 +240,13 @@ Page({
           key: 'addUser',
           data: JSON.stringify(newArr),
         })
+        _this.showAnimation()
       },
     })
   }, 
 
   getUserInfo: function() {
     let _this = this;
-    
     wx.getStorage({
       key: "userInfo",
       success(res) {
@@ -260,6 +282,12 @@ Page({
         _this.setData({
           addUserInfo: showAddUserArr
         })
+        let isShow = _this.data.showAddUserList;
+        if (isShow) {
+          _this.showAnimation();
+        } else {
+          _this.hiddenAnimation();
+        }
       },
     })
   },

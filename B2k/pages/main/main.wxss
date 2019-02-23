@@ -82,6 +82,7 @@
   /* border-width: 3rpx;
   border-style: solid;
   border-color:rgba(227, 101, 141, 0.233); */
+  opacity:1;
 }
 
 .addUserList-avater-frist {
