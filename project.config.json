@@ -1,5 +1,7 @@
 {
 	"description": "项目配置文件。",
+	"miniprogramRoot": "B2k/",
+	"cloudfunctionRoot": "cloudfunctions/",
 	"packOptions": {
 		"ignore": []
 	},
@@ -10,8 +12,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"compileType": "miniprogram",
-	"libVersion": "2.2.0",
+	"libVersion": "2.4.0",
 	"appid": "wx792019f6dd727a4c",
 	"projectname": "B2k",
 	"isGameTourist": false,
@@ -21,6 +22,10 @@
 			"list": []
 		},
 		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
 			"current": -1,
 			"list": []
 		},

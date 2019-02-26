@@ -27,7 +27,7 @@
         </view>
       </view>
       <block wx:if="{{addUserInfo.length > 0}}">
-        <view class="showAvaterListBack animateAdd" bindtap="switchShowAll" animation="{{animationImgBarData}}">
+        <view class="showAvaterListBack animateAdd" bindtap="switchShowAll" animation="{{animationImgBarData}}" id="listBack">
           <view wx:for="{{addUserInfo}}" wx:key="mid">
             <image animation="{{animationImgDataArr[item.index]}}" wx:if="{{item.index<12}}" class="addUserList-avater {{item.index===0?'addUserList-avater-frist':''}}" src="{{'https:/' + item.upic}}" mode="cover"/>
           </view> 
@@ -53,9 +53,19 @@
       </block>
     </view>
   </block>
+  <view class="recommend-back">
+    <view class='recommend-btn-back'>
+      <text class="set-addTitle recommend-text-add">7天热番排行</text>
+      <image class="recommend-icon" src="../image/arrow.png" mode="cover"/>
+    </view>
+    <view class='recommend-line'/>
+    <view class='recommend-btn-back'>
+      <text class="set-addTitle recommend-text-add">B站番剧排行</text>
+      <image class="recommend-icon" src="../image/arrow.png" mode="cover"/>
+    </view>
+  </view>
   <timeLine 
     timeLineData="{{timeLineData}}"
-    bindtimeLineSwitchevent="timeLineListener"
     bindchooseAnimeevent="timeLineListener"
   />
   <view class='about-bar' bindtap="toAbout">

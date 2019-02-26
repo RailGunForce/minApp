@@ -14,14 +14,14 @@
         <text class='bangumi-stat-text'>弹幕总数: {{media_info.stat.danmakus}}</text>
         <text class='bangumi-stat-text'>追番人数: {{media_info.stat.favorites}}</text>
         <text class='bangumi-stat-text'>总播放量: {{media_info.stat.views}}</text>
-        <text class='bangumi-stat-text color-text-add'>{{media_info.publish.pub_date_show}} 开播</text>
-        <text class='bangumi-stat-text color-text-add'>{{media_info.episode_index.index_show}}</text>
+        <text class='bangumi-stat-text color-text-add'>{{media_info.publish.pub_date_show}}开播</text>
+        <text wx:if="{{media_info.copyright.is_started !== 0}}" class='bangumi-stat-text color-text-add'>{{media_info.episode_index.index_show}}</text>
       </view>
     </view>
   </view>
   <view class='bangumi-jumpBtn' bindtap="jumpToB">
     <view class='btn-text-back'>
-      <text class='bangumi-btn-text btn-left-text-add'>评分: {{media_info.rating.score}}</text>
+      <text class='bangumi-btn-text btn-left-text-add'>评分: {{media_info.rating.score ? media_info.rating.score : '暂无'}}</text>
     </view>
     <view class='bangumi-btn-line'/>
     <view class='btn-text-back'>

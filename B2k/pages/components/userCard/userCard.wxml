@@ -1,5 +1,5 @@
 <view class="userCard" bindtap="cardTap">
-    <block wx:if="{{leftbtnName === '释放'}}">
+    <block wx:if="{{leftbtnName === '释放' && userInfo.index < 12}}">
       <image class="userCard-avatar"/>
     </block>
     <block wx:else>

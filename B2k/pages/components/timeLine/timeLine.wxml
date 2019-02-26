@@ -1,28 +1,41 @@
 <view class="timeLine-back">
+  
   <view class="timeLine-header">
-      <view wx:for="{{timeLineData}}" wx:key="date" >
-        <view class='timeLine-headerBox {{item.is_today===1?"timeLine-headerBox-select":""}}' catchtap="timeLineSwitch" id="{{item.date}}">
-          <text class='timeLine-headerText {{item.is_today===1?"timeLine-headerText-select":""}}'>{{item.dateStr}}</text>
-        </view>
-      </view>
-  </view>
-  <view>
-    
-    <view wx:for="{{timeLineData}}" wx:key="date">
-      <view wx:if="{{item.is_today===1}}">
-        <text class='week-bar'>{{item.weekStr}}</text>
-        <view wx:for="{{item.seasons}}" wx:key="season_id">
-          <view class='anime-card' catchtap="chooseAnime" id="{{item.season_id}}">
-            <image class='anime-img' src="{{item.square_cover}}" mode="aspectFill"/>
-            <view class='text-back'>
-              <text class='anime-title'>{{item.title}}</text>
-              <text class='anime-time'>更新时间 {{item.pub_time}}</text>
-              <text class='anime-num'>{{item.pub_index}}</text>
-            </view>
-          </view>
-        </view>
+    <view wx:for="{{timeLineData}}" wx:key="date" >
+      <view class='timeLine-headerBox' catchtap="timeLineSwitch" id="{{item.date}}">
+        <text class='timeLine-headerText'>{{item.dateStr}}</text>
       </view>
     </view>
-    
   </view>
+  <view 
+    animation="{{animationBarData}}"
+    class='timeLine-headerBox timeLine-headerBox-select moveBarAdd'
+  >
+    <text class='timeLine-headerText timeLine-headerText-select'>{{timeLineData[currentTime].dateStr}}</text>
+  </view>
+  
+  <swiper
+    vertical="{{vertical}}"
+    class='swiper-back'
+    bindchange='bindchange'
+    bindtransition='bindtransition'
+    current='{{currentTime}}'
+    animation="{{animationHeightData}}"
+  >
+    <view wx:for="{{timeLineData}}" wx:key="date">
+        <swiper-item item-id="{{item.date}}">
+          <text class='week-bar'>{{item.weekStr}}</text>
+            <view wx:for="{{item.seasons}}" wx:key="season_id">
+              <view class='anime-card' catchtap="chooseAnime" id="{{item.season_id}}">
+                <image class='anime-img' src="{{item.square_cover}}" mode="aspectFill"/>
+                <view class='text-back'>
+                  <text class='anime-title'>{{item.title}}</text>
+                  <text class='anime-time'>更新时间 {{item.pub_time}}</text>
+                  <text class='anime-num'>{{item.pub_index}}</text>
+                </view>
+              </view>
+            </view>
+        </swiper-item>
+      </view>
+  </swiper>
 </view>

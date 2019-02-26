@@ -29,17 +29,13 @@ Page({
   switchShowAll: function (e) {
     let isShow = this.data.showAddUserList;
     if (isShow) {
-      this.hiddenAnimation();
+      if (e.currentTarget.id !== 'listBack') {
+        this.hiddenAnimation();
+      }
     } else {
       this.showAnimation();
     }
   },
-
-  /*
-  1.还是应该在展开动作完成后,把这个头像栏隐藏了,不然会影响展开时的添加删除结果
-  2. 展开后,100ms 之后,隐藏头像栏,显示原头像
-  3. 收起时,隐藏原头像,显示头像栏,然后进行动画
-  */
 
   showAnimation: function () {
     const sysInfo = wx.getSystemInfoSync()
@@ -59,23 +55,17 @@ Page({
     animationImgBar.rotate(90).translateX(-22 * pxfix).translateY(-8 * pxfix).step()
     let animaArr = [];
     for (let index = 0; index < imageArr.length; index++) {
-      let transform = (50 + index * 115) + '% 50% 0';
       const animationImage = wx.createAnimation({
         duration: 400,
         timingFunction: 'ease',
-        //transformOrigin: transform,
       })
-   
-      //let offSetX = index * 92;
-      let offSetX = index * 73.5;
-      
-      // animationImage.scale(1.25).rotate(-90).translateX(offSetX * pxfix).step();
-      animationImage.scale(1.25).translateX(offSetX * pxfix).step();
+      let offSetX = index * 74;
+      animationImage.scale(1.25).translateX(offSetX * pxfix).rotate(-90).step();
       animaArr.push(animationImage.export())
     }
     this.setData({
       animationListData: animationOne.export(),
-      animationImgBarData: animationImgBar,
+      animationImgBarData: animationImgBar.export(),
       animationImgDataArr: animaArr,
       showAddUserList: true
     })
@@ -105,7 +95,11 @@ Page({
         duration: 400,
         timingFunction: 'ease',
       })
-      animationOne.height("225rpx").step();
+      if (this.data.addUserInfo.length === 0) {
+        animationOne.height("100rpx").step();
+      } else {
+        animationOne.height("225rpx").step();
+      }
       const animationImgBar = wx.createAnimation({
         duration: 400,
         timingFunction: 'ease',
@@ -115,18 +109,16 @@ Page({
       let imageArr = this.data.addUserInfo;
       let animaArr = [];
       for (let index = 0; index < imageArr.length; index++) {
-        let transform = (50 + index * 115) + '% 50% 0';
         const animationImage = wx.createAnimation({
           duration: 400,
           timingFunction: 'ease',
-          // transformOrigin: transform,
         })
         animationImage.scale(1).translateX(0).translateY(0).step();
         animaArr.push(animationImage.export())
       }
       this.setData({
         animationListData: animationOne.export(),
-        animationImgBarData: animationImgBar,
+        animationImgBarData: animationImgBar.export(),
         animationImgDataArr: animaArr,
         showAddUserList: false
       })
@@ -181,25 +173,6 @@ Page({
 
   timeLineListener: function(e) {
     let eventType = e.type;
-    if (eventType === 'timeLineSwitchevent') {
-      let switchToDate = e.detail.toDate;
-      let timeLineData = this.data.timeLineData;
-      let newTimeLineData = [];
-      this.chooseTimeLine = switchToDate;
-      for (let index = 0; index < timeLineData.length; index ++) {
-        let dailyData = timeLineData[index];
-        if (dailyData.date === switchToDate) {
-          dailyData.is_today = 1;
-        } else {
-          dailyData.is_today = 0;
-        }
-        newTimeLineData.push(dailyData);
-      }
-      this.setData({
-        timeLineData: newTimeLineData
-      })
-      
-    }
     if (eventType === 'chooseAnimeevent') {
       let seasonId = e.detail.seasonId;
       wx.navigateTo({
@@ -233,6 +206,7 @@ Page({
           }
         }
         global.addIdArr = addIdArr;
+        
         _this.setData({
           addUserInfo: showAddUserArr
         })
@@ -240,7 +214,14 @@ Page({
           key: 'addUser',
           data: JSON.stringify(newArr),
         })
-        _this.showAnimation()
+        if (showAddUserArr.length === 0) {
+          _this.setData({
+            showAddUserList: false
+          })
+          _this.hiddenAnimation();
+        } else {
+          _this.showAnimation();
+        }
       },
     })
   }, 
@@ -293,20 +274,36 @@ Page({
   },
 
   getTimeLineData: function() {
+
     let url = "https://bangumi.bilibili.com/web_api/timeline_global"
+    //let url = 'https://api.bilibili.com/x/web-interface/ranking/region?rid=33&day=7&original=0';
     wx.request({
       url: url,
+      header: {
+        'content-type': 'application/json'
+      },
       success: res => {
         if (res.data.message === "success") {
           // 原数据是 今天的前六天 + 今天 + 今天的后六天 共13天
           // 这里只用 今天的前三天 + 今天 + 今天的后三天 共7天
           let showTimeData = this.getShowTimeLineData(res.data.result);
           this.setData({
-            timeLineData: showTimeData
+            timeLineData: showTimeData,
           })
         }
       },
     })
+
+    // 云函数
+    // wx.cloud.callFunction({
+    //   name: 'getBiliRankingData',
+    //   success: res => {
+    //     console.log(res)
+    //   },
+    //   fail: err => {
+    //     console.error('[云函数] [sum] 调用失败：', err)
+    //   }
+    // })
   },
 
   getShowTimeLineData: function(getData) {
@@ -324,6 +321,7 @@ Page({
       if (returnData[index].dateStr === nowDateStr) {
         returnData[index].dateStr = "今天";
       }
+      returnData[index].height = 60 + (returnData[index].seasons.length) * 140; //单位 rpx
     }
     return returnData;
   },

@@ -51,7 +51,6 @@
   border-width: 3rpx;
   border-style: solid;
   border-color:#E3658D;
-  height: 225rpx;
 }
 
 .addUserTitle {
@@ -112,6 +111,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 30rpx;
 
 }
 
@@ -128,4 +128,40 @@
 
 .animateCardAdd {
   opacity: 0;
+}
+
+.recommend-back {
+  width: 100% - 120rpx;
+  margin: 10rpx;
+  border-radius: 30rpx;
+  border-width: 3rpx;
+  border-style: solid;
+  border-color:#E3658D;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.recommend-text-add {
+  font-size: 28rpx;
+}
+
+.recommend-btn-back {
+  padding: 20rpx 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.recommend-line {
+  height: 2rpx;
+  width: 670rpx;
+  margin: 0 25rpx;
+  background-color: #E3658D;
+}
+
+.recommend-icon {
+  position: absolute;
+  right: 30rpx;
+  width: 25rpx;
+  height: 25rpx;
 }
